@@ -5,6 +5,7 @@ func main() {
 	// twoChannels()
 	// selectChannels()
 	// waitOnWorkers()
-	sendEvents()
+	// sendEvents()
 	// sendMessage()
+	waitGroup()
 }
