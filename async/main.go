@@ -7,5 +7,6 @@ func main() {
 	// waitOnWorkers()
 	// sendEvents()
 	// sendMessage()
-	waitGroup()
+	// waitGroup()
+	mapReduce()
 }
