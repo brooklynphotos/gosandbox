@@ -18,11 +18,12 @@ type Routes []Route
 func MakeRoutes() *mux.Router {
 	router := mux.NewRouter().StrictSlash(true)
 	for _, r := range routes {
+		handler := Logger(r.Name, r.Handler)
 		router.
 			Methods(r.Method).
 			Path(r.Pattern).
 			Name(r.Name).
-			Handler(r.Handler)
+			Handler(handler)
 	}
 	return router
 }
