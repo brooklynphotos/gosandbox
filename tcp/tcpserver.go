@@ -31,9 +31,10 @@ func main() {
 }
 
 func handleRequest(conn net.Conn) {
-	for i := 0; i < 10; i++ {
-		conn.Write([]byte(fmt.Sprintf("%d", i)))
-		time.Sleep(100 * time.Millisecond)
+	fmt.Println("Talking on a connection")
+	for i := 0; i < 20; i++ {
+		conn.Write([]byte(fmt.Sprintf("%d\n", i)))
+		time.Sleep(200 * time.Millisecond)
 	}
 	conn.Close()
 }
