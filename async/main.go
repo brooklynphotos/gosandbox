@@ -8,5 +8,6 @@ func main() {
 	// sendEvents()
 	// sendMessage()
 	// waitGroup()
-	mapReduce()
+	// mapReduce()
+	makeTiramisu()
 }
