@@ -36,9 +36,8 @@ func maxSarray(arr []int32) int32 {
 func max(a int32, b int32) int32 {
 	if a > b {
 		return a
-	} else {
-		return b
 	}
+	return b
 }
 
 func buildMatrix(size int) [][]int32 {
