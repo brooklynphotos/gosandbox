@@ -61,3 +61,11 @@ func TestSumRangeParitionedLC3(t *testing.T) {
 		t.Errorf("%d != %d", res, expected)
 	}
 }
+func TestSumRangeParitionedZero(t *testing.T) {
+	c := PartitionedConstructor([]int{-1})
+	expected := -1
+	res := c.SumRange(0, 0)
+	if !reflect.DeepEqual(expected, res) {
+		t.Errorf("%d != %d", res, expected)
+	}
+}

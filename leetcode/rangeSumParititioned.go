@@ -2,14 +2,18 @@
 
 package leetcode
 
-type NumArrayParititoned struct {
+type NumArrayPartitioned struct {
 	chunkSize int
 	sums      [][]int
 }
 
-func PartitionedConstructor(nums []int) NumArrayParititoned {
+func PartitionedConstructor(nums []int) NumArrayPartitioned {
 	chunkCount := 4
 	chunkSize := len(nums) / chunkCount
+	if chunkSize == 0 { // too small
+		chunkSize = len(nums)
+		chunkCount = 1
+	}
 	partitionedSums := make([][]int, chunkCount)
 	for c := 0; c < chunkCount; c++ {
 		size := chunkSize
@@ -28,14 +32,14 @@ func PartitionedConstructor(nums []int) NumArrayParititoned {
 		}
 		partitionedSums[c] = sums
 	}
-	return NumArrayParititoned{chunkSize, partitionedSums}
+	return NumArrayPartitioned{chunkSize, partitionedSums}
 }
 
-func (this *NumArrayParititoned) SumRange(i int, j int) int {
+func (this *NumArrayPartitioned) SumRange(i int, j int) int {
 	return this.getValue(j) - this.getValue(i-1)
 }
 
-func (this *NumArrayParititoned) getValue(i int) int {
+func (this *NumArrayPartitioned) getValue(i int) int {
 	if i < 0 {
 		return 0
 	}
@@ -53,7 +57,7 @@ func (this *NumArrayParititoned) getValue(i int) int {
 /**
  * gets the max value up to the end of this chunk
  */
-func (this *NumArrayParititoned) getMax(c int) int {
+func (this *NumArrayPartitioned) getMax(c int) int {
 	if c < 0 {
 		return 0
 	}
@@ -62,7 +66,7 @@ func (this *NumArrayParititoned) getMax(c int) int {
 }
 
 /**
- * Your NumArray object will be instantiated and called as such:
+ * Your NumArrayPartitioned object will be instantiated and called as such:
  * obj := Constructor(nums);
  * param_1 := obj.SumRange(i,j);
  */
